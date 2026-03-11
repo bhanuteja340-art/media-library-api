@@ -10,7 +10,7 @@ from schemas.book import BookCreate, BookUpdate, BookResponse
 router = APIRouter(prefix="/books", tags=["Books"])
 
 
-# Helper function: Get book or return 404
+
 def _get_or_404(db: Session, book_id: int) -> Book:
     book = (
         db.query(Book)
@@ -28,7 +28,7 @@ def _get_or_404(db: Session, book_id: int) -> Book:
     return book
 
 
-# Helper function: Validate category existence
+
 def _validate_category(db: Session, category_id: int) -> None:
     category = db.query(Category).filter(Category.id == category_id).first()
 
